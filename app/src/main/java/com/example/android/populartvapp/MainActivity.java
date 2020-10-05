@@ -20,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
         //SharedPrefences
         prefs = getSharedPreferences("prefs", MODE_PRIVATE);
         firstStart = prefs.getBoolean("firstStart", true);
-        if (firstStart){
+
             Intent intent = new Intent(this, IntroActivity.class);
             startActivity(intent);
-        }
+
     }
 }
