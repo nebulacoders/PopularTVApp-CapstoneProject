@@ -4,5 +4,9 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
+    <!--color untuk gradient tansition-->
+    <color name="blue">#64b5f6</color>
+    <color name="green">#81c784</color>
+
 
 </resources>
