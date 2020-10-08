@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import com.github.appintro.AppIntro;
@@ -22,22 +25,24 @@ public class IntroActivity extends AppIntro {
         addSlide(AppIntroFragment.newInstance(
                 "Welcome",
                 "This is the first slide",
-                R.drawable.ic_tv,
-                this.getResources().getColor(R.color.blue),
+                R.drawable.intro1,
                 Color.WHITE,
-                Color.WHITE
+                this.getResources().getColor(R.color.blue),
+                this.getResources().getColor(R.color.blue)
         ));
         addSlide(AppIntroFragment.newInstance(
                 "Welcome",
                 "This is the second slide",
-                R.drawable.ic_tv,
-                this.getResources().getColor(R.color.green),
+                R.drawable.intro2,
                 Color.WHITE,
-                Color.WHITE
+                this.getResources().getColor(R.color.blue),
+                this.getResources().getColor(R.color.blue)
         ));
-        setNextArrowColor(Color.WHITE);
-        setColorDoneText(Color.WHITE);
-        setTransformer((AppIntroPageTransformerType)Fade.INSTANCE);
+        setNextArrowColor(this.getResources().getColor(R.color.blue));
+        setColorDoneText(this.getResources().getColor(R.color.blue));
+        setColorSkipButton(this.getResources().getColor(R.color.blue));
+        setIndicatorColor(this.getResources().getColor(R.color.blue), this.getResources().getColor(R.color.dark_blue));
+        setTransformer((AppIntroPageTransformerType)Flow.INSTANCE);
     }
 
     public void onSkipPressed(Fragment currentFragment) {
