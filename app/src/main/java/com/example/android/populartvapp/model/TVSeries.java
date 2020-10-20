@@ -1,5 +1,6 @@
 package com.example.android.populartvapp.model;
 
+// Class model for Data Dummy TV Series
 public class TVSeries {
 
     // Member variables representing the title and information about the tv.

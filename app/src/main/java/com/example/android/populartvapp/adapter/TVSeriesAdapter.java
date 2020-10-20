@@ -5,70 +5,79 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.android.populartvapp.DetailActivity;
 import com.example.android.populartvapp.R;
-import com.example.android.populartvapp.model.TVSeries;
+import com.example.android.populartvapp.model.ResultsItem;
 
 import java.util.ArrayList;
 
-public class TVSeriesAdapter extends RecyclerView.Adapter<TVSeriesAdapter.TVSeriesViewHolder> {
+public class TVSeriesAdapter extends RecyclerView.Adapter<TVSeriesAdapter.ViewHolder> {
 
-    private ArrayList<TVSeries> listTvData;
+    private ArrayList<ResultsItem> listTVData;
     private Context mContext;
 
-    public TVSeriesAdapter(Context context, ArrayList<TVSeries> listTVData) {
-        this.listTvData = listTVData;
+    public TVSeriesAdapter(Context context, ArrayList<ResultsItem> listTVData) {
+        this.listTVData = listTVData;
         this.mContext = context;
     }
 
     @NonNull
     @Override
-    public TVSeriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
         View view = layoutInflater.inflate(R.layout.list_item, parent, false);
-        return new TVSeriesViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TVSeriesViewHolder holder, int position) {
-        holder.mTitle.setText(listTvData.get(position).getTitle());
-        holder.mFirstAirDate.setText(listTvData.get(position).getFirstAirDate());
-        holder.mVoteAverage.setText(listTvData.get(position).getVoteAverage());
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.tvTitle.setText(listTVData.get(position).getOriginalName());
+        holder.tvFirstAirDate.setText(listTVData.get(position).getFirstAirDate());
+        holder.tvVoteAverage.setText(Double.toString(listTVData.get(position).getVoteAverage()));
+        Glide.with(mContext).load(listTVData.get(position).getPosterPath()).error(R.drawable.logonebula)
+                .override(220, 330)
+                .into(holder.ivPoster);
     }
 
     @Override
     public int getItemCount() {
-        return (listTvData != null) ? listTvData.size() : 0;
+        return (listTVData != null) ? listTVData.size() : 0;
     }
 
-    class TVSeriesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         // Member Variables untuk TextViews
-        private TextView mTitle;
-        private TextView mFirstAirDate;
-        private TextView mVoteAverage;
+        private ImageView ivPoster;
+        private TextView tvTitle;
+        private TextView tvFirstAirDate;
+        private TextView tvVoteAverage;
 
-        public TVSeriesViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            mTitle = itemView.findViewById(R.id.tv_title);
-            mFirstAirDate = itemView.findViewById(R.id.tv_firstAirDate);
-            mVoteAverage = itemView.findViewById(R.id.tv_voteAverage);
+            ivPoster = itemView.findViewById(R.id.iv_poster);
+            tvTitle = itemView.findViewById(R.id.tv_title);
+            tvFirstAirDate = itemView.findViewById(R.id.tv_firstAirDate);
+            tvVoteAverage = itemView.findViewById(R.id.tv_voteAverage);
 
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            TVSeries currentTVSeries = listTvData.get(getAdapterPosition());
+            ResultsItem currentTVSeries = listTVData.get(getAdapterPosition());
             Intent detailIntent = new Intent(mContext, DetailActivity.class);
-            detailIntent.putExtra("title", currentTVSeries.getTitle());
+            detailIntent.putExtra("title", currentTVSeries.getOriginalName());
             detailIntent.putExtra("first_air_date", currentTVSeries.getFirstAirDate());
-            detailIntent.putExtra("vote_average", currentTVSeries.getVoteAverage());
+            detailIntent.putExtra("vote_average", Double.toString(currentTVSeries.getVoteAverage()));
+            detailIntent.putExtra("poster", currentTVSeries.getPosterPath());
             mContext.startActivity(detailIntent);
         }
     }
