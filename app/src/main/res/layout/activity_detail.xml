@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/app_bar_height"
         android:fitsSystemWindows="true"
+        android:background="@android:color/black"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -34,7 +35,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/iv_poster_detail"
                 android:src="@drawable/logonebula"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:alpha="0.4"/>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>

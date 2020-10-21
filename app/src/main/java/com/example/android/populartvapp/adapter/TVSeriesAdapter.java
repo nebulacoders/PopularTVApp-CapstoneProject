@@ -2,6 +2,7 @@ package com.example.android.populartvapp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,6 +79,7 @@ public class TVSeriesAdapter extends RecyclerView.Adapter<TVSeriesAdapter.ViewHo
             detailIntent.putExtra("first_air_date", currentTVSeries.getFirstAirDate());
             detailIntent.putExtra("vote_average", Double.toString(currentTVSeries.getVoteAverage()));
             detailIntent.putExtra("poster", currentTVSeries.getPosterPath());
+            detailIntent.putExtra("genre", currentTVSeries.getGenreIds());
             mContext.startActivity(detailIntent);
         }
     }

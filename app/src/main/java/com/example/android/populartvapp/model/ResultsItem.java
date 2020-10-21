@@ -1,5 +1,6 @@
 package com.example.android.populartvapp.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
@@ -15,13 +16,13 @@ public class ResultsItem{
     private String originalLanguage;
 
     @SerializedName("genre_ids")
-    private List<Integer> genreIds;
+    private ArrayList<Integer> genreIds;
 
     @SerializedName("poster_path")
     private String posterPath;
 
     @SerializedName("origin_country")
-    private List<String> originCountry;
+    private ArrayList<String> originCountry;
 
     @SerializedName("backdrop_path")
     private String backdropPath;
@@ -68,11 +69,11 @@ public class ResultsItem{
         return originalLanguage;
     }
 
-    public void setGenreIds(List<Integer> genreIds){
+    public void setGenreIds(ArrayList<Integer> genreIds){
         this.genreIds = genreIds;
     }
 
-    public List<Integer> getGenreIds(){
+    public ArrayList<Integer> getGenreIds(){
         return genreIds;
     }
 
@@ -84,11 +85,11 @@ public class ResultsItem{
         return "https://image.tmdb.org/t/p/w200"+posterPath;
     }
 
-    public void setOriginCountry(List<String> originCountry){
+    public void setOriginCountry(ArrayList<String> originCountry){
         this.originCountry = originCountry;
     }
 
-    public List<String> getOriginCountry(){
+    public ArrayList<String> getOriginCountry(){
         return originCountry;
     }
 
