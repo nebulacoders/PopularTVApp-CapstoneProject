@@ -1,64 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp"
+    android:layout_marginLeft="7dp"
+    android:layout_marginTop="7dp"
+    android:layout_marginRight="7dp"
+    android:layout_marginBottom="5dp"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+    <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        app:cardCornerRadius="14dp"
+        app:cardElevation="0dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/iv_poster"
-                android:layout_width="88dp"
-                android:layout_height="132dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:src="@android:drawable/btn_dialog"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:padding="4dp"
-                android:text="Title"
-                android:textColor="@android:color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_poster"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_width="128dp"
+                android:layout_height="192dp"
+                android:adjustViewBounds="true"
+                android:layout_marginTop="-5dp"
+                android:layout_marginBottom="-3dp"
+                android:src="@drawable/logonebula" />
 
             <TextView
                 android:id="@+id/tv_firstAirDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="First Air Date"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_poster"
-                app:layout_constraintTop_toBottomOf="@id/tv_title" />
+                android:layout_alignEnd="@id/iv_poster"
+                android:padding="5dp"
+                android:text="Year"
+                android:background="@drawable/shape_item_card_right"
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/tv_voteAverage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:text="Vote Average"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_poster"
-                app:layout_constraintTop_toBottomOf="@id/tv_firstAirDate" />
+                android:padding="5dp"
+                android:drawableStart="@drawable/ic_rate"
+                android:drawablePadding="2dp"
+                android:text="Vote"
+                android:background="@drawable/shape_item_card_left"
+                android:textColor="@android:color/white" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textColor="@color/polo_blue"
+        android:textSize="17dp"
+        android:maxLines="2"
+        android:ellipsize="end"/>
+
 </LinearLayout>

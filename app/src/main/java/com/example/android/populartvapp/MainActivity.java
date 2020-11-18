@@ -1,6 +1,7 @@
 package com.example.android.populartvapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getData(){
+        final int gridColumnCount = 3;
         ApiService apiService = ApiConfig.getApiService();
         apiService.getPopular("0dde3e9896a8c299d142e214fcb636f8","en-US","1")
                 .enqueue(new Callback<RootTVSeriesModel>() {
@@ -91,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                             adapterTVSeries = new TVSeriesAdapter(MainActivity.this, listDataTVSeries); // Membuat adapter dan supply data yang akan ditampilkan
                             adapterTVSeries.notifyDataSetChanged(); // Memberitahu adapter apabila ada data baru
                             rvTVSeries.setAdapter(adapterTVSeries); // Connect adapter dengan RV
-                            rvTVSeries.setLayoutManager(new LinearLayoutManager(MainActivity.this)); // Menentukan RV default layout
+                            rvTVSeries.setLayoutManager(new GridLayoutManager(MainActivity.this, gridColumnCount)); // Menentukan RV default layout
                         }
                     }
 

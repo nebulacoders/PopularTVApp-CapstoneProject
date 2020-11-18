@@ -1,6 +1,8 @@
 package com.example.android.populartvapp.model;
 
-// Class model for Data Dummy TV Series
+// Class model for Testing with Data Dummy TV Series
+// Class model for Testing with Data Dummy TV Series
+// Class model for Testing with Data Dummy TV Series
 public class TVSeries {
 
     // Member variables representing the title and information about the tv.

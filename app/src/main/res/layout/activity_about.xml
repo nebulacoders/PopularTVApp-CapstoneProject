@@ -22,11 +22,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/sportsImageDetail"
             android:text="@string/tentang_kami"
-            android:textColor="#1597BC"
+            android:textColor="@color/colorPrimary"
+            android:paddingLeft="16dp"
             android:textSize="20sp"
             android:textStyle="bold"
             android:theme="@style/ThemeOverlay.AppCompat.Dark" />
-
 
         <TextView
             android:id="@+id/isi"
@@ -35,13 +35,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textintro"
             android:padding="16dp"
-            android:text="@string/isi"
+            android:text="@string/isi_about"
             android:textSize="14sp" />
 
         <ImageButton
             android:id="@+id/github"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:layout_below="@+id/isi"
             android:src="@drawable/about_icon_github"
             android:text="@string/github"
