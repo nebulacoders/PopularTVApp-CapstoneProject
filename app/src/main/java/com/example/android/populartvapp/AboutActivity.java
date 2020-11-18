@@ -19,20 +19,18 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        mWebsiteEditText = findViewById(R.id.website_edittext);
-
-        Intent intent = getIntent();
-        Uri uri = intent.getData();
-        if (uri != null) {
-            String uri_string = getString(R.string.uri_label)
-                    + uri.toString();
-            TextView textView = findViewById(R.id.text_uri_message);
-            textView.setText(uri_string);
-        }
+//        Intent intent = getIntent();
+//        Uri uri = intent.getData();
+//        if (uri != null) {
+//            String uri_string = getString(R.string.uri_label)
+//                    + uri.toString();
+//            TextView textView = findViewById(R.id.text_uri_message);
+//            textView.setText(uri_string);
+//        }
     }
     public void opengithub(View view) {
         // Get the URL text.
-        String url = mWebsiteEditText.getText().toString();
+        String url = "https://github.com/nebulacoders";
 
         // Parse the URI and create the intent.
         Uri webpage = Uri.parse(url);

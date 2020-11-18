@@ -2,7 +2,6 @@ package com.example.android.populartvapp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +20,11 @@ import java.util.ArrayList;
 
 public class TVSeriesAdapter extends RecyclerView.Adapter<TVSeriesAdapter.ViewHolder> {
 
-    private ArrayList<ResultsItem> listTVData;
+    private ArrayList<ResultsItem> listDataTVSeries;
     private Context mContext;
 
     public TVSeriesAdapter(Context context, ArrayList<ResultsItem> listTVData) {
-        this.listTVData = listTVData;
+        this.listDataTVSeries = listTVData;
         this.mContext = context;
     }
 
@@ -39,19 +38,18 @@ public class TVSeriesAdapter extends RecyclerView.Adapter<TVSeriesAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvTitle.setText(listTVData.get(position).getOriginalName());
-        holder.tvFirstAirDate.setText(listTVData.get(position).getFirstAirDate());
-        holder.tvVoteAverage.setText(Double.toString(listTVData.get(position).getVoteAverage()));
-        Glide.with(mContext).load(listTVData.get(position).getPosterPath()).error(R.drawable.logonebula)
+        holder.tvTitle.setText(listDataTVSeries.get(position).getOriginalName());
+        holder.tvFirstAirDate.setText(listDataTVSeries.get(position).getFirstAirDate().substring(0,4));
+        holder.tvVoteAverage.setText(Double.toString(listDataTVSeries.get(position).getVoteAverage()));
+        Glide.with(mContext).load(listDataTVSeries.get(position).getPosterPath()).error(R.drawable.logonebula)
                 .override(220, 330)
                 .into(holder.ivPoster);
     }
 
     @Override
     public int getItemCount() {
-        return (listTVData != null) ? listTVData.size() : 0;
+        return (listDataTVSeries != null) ? listDataTVSeries.size() : 0;
     }
-
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -73,13 +71,15 @@ public class TVSeriesAdapter extends RecyclerView.Adapter<TVSeriesAdapter.ViewHo
 
         @Override
         public void onClick(View view) {
-            ResultsItem currentTVSeries = listTVData.get(getAdapterPosition());
+            ResultsItem currentTVSeries = listDataTVSeries.get(getAdapterPosition());
             Intent detailIntent = new Intent(mContext, DetailActivity.class);
             detailIntent.putExtra("title", currentTVSeries.getOriginalName());
             detailIntent.putExtra("first_air_date", currentTVSeries.getFirstAirDate());
             detailIntent.putExtra("vote_average", Double.toString(currentTVSeries.getVoteAverage()));
             detailIntent.putExtra("poster", currentTVSeries.getPosterPath());
             detailIntent.putExtra("genre", currentTVSeries.getGenreIds());
+            detailIntent.putExtra("overview", currentTVSeries.getOverview());
+            detailIntent.putExtra("popularity", Double.toString(currentTVSeries.getPopularity()));
             mContext.startActivity(detailIntent);
         }
     }

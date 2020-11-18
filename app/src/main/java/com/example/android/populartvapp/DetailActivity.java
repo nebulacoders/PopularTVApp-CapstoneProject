@@ -18,11 +18,14 @@ import java.util.HashMap;
 
 public class DetailActivity extends AppCompatActivity {
 
+    private ImageView ivPosterBgDetail;
     private ImageView ivPosterDetail;
     private TextView tvTitleDetail;
     private TextView tvFirstAirDateDetail;
     private TextView tvVoteAverageDetail;
     private TextView tvGenreDetail;
+    private TextView tvPopularityDetail;
+    private TextView tvOverviewDetail;
 
     private ArrayList<Integer> genreList;
     StringBuffer sbGenre = new StringBuffer();
@@ -62,6 +65,8 @@ public class DetailActivity extends AppCompatActivity {
         tvTitleDetail.setText(getIntent().getStringExtra("title"));
         tvFirstAirDateDetail.setText(getIntent().getStringExtra("first_air_date"));
         tvVoteAverageDetail.setText(getIntent().getStringExtra("vote_average"));
+        tvPopularityDetail.setText(getIntent().getStringExtra("popularity"));
+        tvOverviewDetail.setText(getIntent().getStringExtra("overview"));
         genreList = getIntent().getIntegerArrayListExtra("genre");
         for (int i = 0; i < genreList.size(); i++) {
             sbGenre.append(genres.get(genreList.get(i)));
@@ -70,15 +75,20 @@ public class DetailActivity extends AppCompatActivity {
         sbGenre.setLength(sbGenre.length() - 2); // Hapus 2 karakter dibelakang string
         tvGenreDetail.setText(sbGenre.toString());
         Glide.with(DetailActivity.this).load(getIntent().getStringExtra("poster")).error(R.drawable.logonebula)
+                .into(ivPosterBgDetail);
+        Glide.with(DetailActivity.this).load(getIntent().getStringExtra("poster")).error(R.drawable.logonebula)
                 .into(ivPosterDetail);
     }
 
     private void initView() {
+        ivPosterBgDetail = findViewById(R.id.iv_poster_bg_detail);
         ivPosterDetail = findViewById(R.id.iv_poster_detail);
         tvTitleDetail = findViewById(R.id.tv_title_detail);
         tvFirstAirDateDetail = findViewById(R.id.tv_firstAirDate_detail);
         tvVoteAverageDetail = findViewById(R.id.tv_voteAverage_detail);
         tvGenreDetail = findViewById(R.id.tv_genre_detail);
+        tvPopularityDetail = findViewById(R.id.tv_popularity_detail);;
+        tvOverviewDetail = findViewById(R.id.tv_overview_detail);;
     }
 
 }

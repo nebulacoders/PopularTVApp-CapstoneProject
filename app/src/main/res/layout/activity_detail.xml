@@ -33,13 +33,47 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/iv_poster_detail"
+                android:id="@+id/iv_poster_bg_detail"
                 android:src="@drawable/logonebula"
                 android:scaleType="centerCrop"
                 android:alpha="0.4"/>
 
+            <TextView
+                android:id="@+id/tv_title_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="207dp"
+                android:padding="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_gravity="bottom|left"
+                android:text="Title"
+                android:textColor="@android:color/white"
+                android:textSize="25dp"
+                android:translationZ="45dp" />
+
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="25dp"
+        app:cardCornerRadius="8dp"
+        android:translationZ="45dp"
+        android:elevation="0dp">
+
+        <ImageView
+            android:id="@+id/iv_poster_detail"
+            android:layout_width="176dp"
+            android:layout_height="264dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/logonebula"
+            android:scaleType="centerCrop"/>
+
+    </androidx.cardview.widget.CardView>
+
+
 
     <include layout="@layout/content_scrolling" />
 

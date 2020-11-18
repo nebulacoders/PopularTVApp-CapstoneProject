@@ -22,15 +22,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.android.populartvapp.MainActivity" />
         </activity>
-        <activity android:name=".AboutActivity">
-            <intent-filter>
-            <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="android.intent.category.BROWSABLE" />
-            <data android:scheme="http"
-                android:host="github.com" />
-        </intent-filter>
+        <activity android:name=".AboutActivity"
+            android:label="About Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.populartvapp.MainActivity" />
         </activity>
         <activity
             android:name=".IntroActivity"
