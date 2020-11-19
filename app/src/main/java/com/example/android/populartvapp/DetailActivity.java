@@ -3,6 +3,7 @@ package com.example.android.populartvapp;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -89,6 +90,17 @@ public class DetailActivity extends AppCompatActivity {
         tvGenreDetail = findViewById(R.id.tv_genre_detail);
         tvPopularityDetail = findViewById(R.id.tv_popularity_detail);;
         tvOverviewDetail = findViewById(R.id.tv_overview_detail);;
+    }
+
+    //Make Up-Botton act like Back-Botton
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch ( item.getItemId() ) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
