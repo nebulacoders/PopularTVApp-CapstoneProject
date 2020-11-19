@@ -12,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".MainActivity" />
         <activity
             android:name=".DetailActivity"
@@ -22,7 +21,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.android.populartvapp.MainActivity" />
         </activity>
-        <activity android:name=".AboutActivity"
+        <activity
+            android:name=".AboutActivity"
             android:label="About Activity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
