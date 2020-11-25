@@ -92,6 +92,8 @@
                         android:layout_height="wrap_content"
                         android:padding="4dp"
                         android:text="First Air Date"
+                        android:drawableStart="@drawable/ic_date"
+                        android:drawablePadding="5dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -102,6 +104,8 @@
                         android:layout_height="wrap_content"
                         android:padding="4dp"
                         android:text="Vote Average"
+                        android:drawableStart="@drawable/ic_rate_detail"
+                        android:drawablePadding="5dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_firstAirDate_detail" />
@@ -112,6 +116,8 @@
                         android:layout_height="wrap_content"
                         android:padding="4dp"
                         android:text="Genre"
+                        android:drawableStart="@drawable/ic_genre"
+                        android:drawablePadding="5dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_voteAverage_detail" />
@@ -122,6 +128,8 @@
                         android:layout_height="wrap_content"
                         android:padding="4dp"
                         android:text="Popularity"
+                        android:drawableStart="@drawable/ic_popularity"
+                        android:drawablePadding="5dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_genre_detail" />

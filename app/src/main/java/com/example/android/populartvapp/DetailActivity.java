@@ -49,6 +49,16 @@ public class DetailActivity extends AppCompatActivity {
             put(10767, "Talk");
             put(10768, "War & Politics");
             put(37, "Western");
+            put(12, "Adventure");
+            put(14, "Fantasy");
+            put(36, "History");
+            put(27, "Horror");
+            put(10402, "Music");
+            put(10749, "Romance");
+            put(878, "Science Fiction");
+            put(10770, "TV Movie");
+            put(53, "Thriller");
+            put(10752, "War");
         }
     };
 
@@ -88,14 +98,16 @@ public class DetailActivity extends AppCompatActivity {
         tvFirstAirDateDetail = findViewById(R.id.tv_firstAirDate_detail);
         tvVoteAverageDetail = findViewById(R.id.tv_voteAverage_detail);
         tvGenreDetail = findViewById(R.id.tv_genre_detail);
-        tvPopularityDetail = findViewById(R.id.tv_popularity_detail);;
-        tvOverviewDetail = findViewById(R.id.tv_overview_detail);;
+        tvPopularityDetail = findViewById(R.id.tv_popularity_detail);
+        ;
+        tvOverviewDetail = findViewById(R.id.tv_overview_detail);
+        ;
     }
 
-    //Make Up-Botton act like Back-Botton
+    //Membuat Up-Botton act like Back-Botton
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch ( item.getItemId() ) {
+        switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
                 return true;
