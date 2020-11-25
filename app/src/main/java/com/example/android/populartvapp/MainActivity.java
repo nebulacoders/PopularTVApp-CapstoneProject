@@ -73,8 +73,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intent);
                 return true;
-
-
             default:
                 // Do nothing
         }
@@ -90,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<RootTVSeriesModel> call, Response<RootTVSeriesModel> response) {
                         if (response.isSuccessful()){
                             listDataTVSeries = response.body().getResults(); // Mengambil data dari JSON lalu ditampung ke model
+
                             adapterTVSeries = new TVSeriesAdapter(MainActivity.this, listDataTVSeries); // Membuat adapter dan supply data yang akan ditampilkan
                             adapterTVSeries.notifyDataSetChanged(); // Memberitahu adapter apabila ada data baru
                             rvTVSeries.setAdapter(adapterTVSeries); // Connect adapter dengan RV
