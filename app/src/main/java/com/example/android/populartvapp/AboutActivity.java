@@ -19,14 +19,6 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-//        Intent intent = getIntent();
-//        Uri uri = intent.getData();
-//        if (uri != null) {
-//            String uri_string = getString(R.string.uri_label)
-//                    + uri.toString();
-//            TextView textView = findViewById(R.id.text_uri_message);
-//            textView.setText(uri_string);
-//        }
     }
     public void opengithub(View view) {
         // Get the URL text.

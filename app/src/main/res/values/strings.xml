@@ -1,14 +1,15 @@
 <resources>
     <string name="app_name">PopularTVApp</string>
-    <string name="nama_nim">Alif Mustaqim - 09031281823041\n M Chendy Rizky P - 09031381823123\n Syahrul Ramadan - 09031181823136\n Gilbert Frans Wijaya - 09031181823006</string>
     <string name="action_settings">Settings</string>
 
     <string name="action_about">About</string>
-    <string name="tentang_kami">Tentang kami</string>
+    <string name="tentang_kami">NebulaCoders</string>
     <string name="isi_about">
-        Program ini dibuat dengan ke sungguhan hati
+        Alif Mustaqim - 09031281823041\nM Chendy Rizky P - 09031381823123\nGilbert Frans Wijaya - 09031181823006\nSyahrul Ramadan - 09031181823136
+        \n\nAplikasi List Popular TV Series
+        \n\nProgram ini dibuat dengan ke sungguhan hati
         dari kelompok kami dan dituangkan menjadi sebuah aplikasi
-        yang dapat bermanfaat bagi para pengguna nya\n\nHope you enjoy this aplication :)\n
+        yang dapat bermanfaat bagi para pengguna nya\n\nHope you enjoy this application :)\n
     </string>
     <string name="github">github</string>
     <string name="uri_label">\"URI: \"</string>
