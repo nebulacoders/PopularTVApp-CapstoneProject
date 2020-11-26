@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import java.util.ArrayList;
@@ -66,7 +67,7 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -85,9 +86,16 @@ public class DetailActivity extends AppCompatActivity {
         }
         sbGenre.setLength(sbGenre.length() - 2); // Hapus 2 karakter dibelakang string
         tvGenreDetail.setText(sbGenre.toString());
-        Glide.with(DetailActivity.this).load(getIntent().getStringExtra("poster")).error(R.drawable.logonebula)
+        String url = "https://image.tmdb.org/t/p/w200" + getIntent().getStringExtra("poster");
+        Glide.with(DetailActivity.this)
+                .load(url)
+                .error(R.drawable.logonebula)
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 .into(ivPosterBgDetail);
-        Glide.with(DetailActivity.this).load(getIntent().getStringExtra("poster")).error(R.drawable.logonebula)
+        Glide.with(DetailActivity.this)
+                .load(url)
+                .error(R.drawable.logonebula)
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 .into(ivPosterDetail);
     }
 
@@ -99,9 +107,7 @@ public class DetailActivity extends AppCompatActivity {
         tvVoteAverageDetail = findViewById(R.id.tv_voteAverage_detail);
         tvGenreDetail = findViewById(R.id.tv_genre_detail);
         tvPopularityDetail = findViewById(R.id.tv_popularity_detail);
-        ;
         tvOverviewDetail = findViewById(R.id.tv_overview_detail);
-        ;
     }
 
     //Membuat Up-Botton act like Back-Botton

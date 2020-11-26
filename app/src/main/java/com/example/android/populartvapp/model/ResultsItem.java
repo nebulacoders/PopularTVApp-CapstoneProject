@@ -1,49 +1,79 @@
 package com.example.android.populartvapp.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "api_table")
 public class ResultsItem{
 
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "rank")
+    private Integer rank;
+
     @SerializedName("first_air_date")
+    @ColumnInfo(name = "first_air_date")
     private String firstAirDate;
 
     @SerializedName("overview")
+    @ColumnInfo(name = "overview")
     private String overview;
 
     @SerializedName("original_language")
+    @ColumnInfo(name = "original_language")
     private String originalLanguage;
 
     @SerializedName("genre_ids")
+    @ColumnInfo(name = "genre_ids")
     private ArrayList<Integer> genreIds;
 
     @SerializedName("poster_path")
+    @ColumnInfo(name = "poster_path")
     private String posterPath;
 
     @SerializedName("origin_country")
+    @ColumnInfo(name = "origin_country")
     private ArrayList<String> originCountry;
 
     @SerializedName("backdrop_path")
+    @ColumnInfo(name = "backdrop_path")
     private String backdropPath;
 
     @SerializedName("original_name")
+    @ColumnInfo(name = "original_name")
     private String originalName;
 
     @SerializedName("popularity")
+    @ColumnInfo(name = "populatity")
     private Double popularity;
 
     @SerializedName("vote_average")
+    @ColumnInfo(name = "vote_average")
     private Double voteAverage;
 
     @SerializedName("name")
     private String name;
 
     @SerializedName("id")
+    @ColumnInfo(name = "id")
     private Integer id;
 
     @SerializedName("vote_count")
+    @ColumnInfo(name = "vote_count")
     private Integer voteCount;
+
+    public Integer getRank() {
+        return rank;
+    }
+
+    public void setRank(Integer rank) {
+        this.rank = rank;
+    }
 
     public void setFirstAirDate(String firstAirDate){
         this.firstAirDate = firstAirDate;
@@ -82,7 +112,7 @@ public class ResultsItem{
     }
 
     public String getPosterPath(){
-        return "https://image.tmdb.org/t/p/w200"+posterPath;
+        return posterPath;
     }
 
     public void setOriginCountry(ArrayList<String> originCountry){
@@ -133,7 +163,7 @@ public class ResultsItem{
         return name;
     }
 
-    public void setId(Integer id){
+    public void setId(@NonNull Integer id) {
         this.id = id;
     }
 

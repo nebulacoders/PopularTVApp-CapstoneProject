@@ -24,7 +24,7 @@ public class IntroActivity extends AppIntro {
         super.onCreate(savedInstanceState);
         addSlide(AppIntroFragment.newInstance(
                 "Welcome",
-                "List Popular TV Series",
+                "Aplikasi List Popular TV Series",
                 R.drawable.intro1,
                 Color.WHITE,
                 this.getResources().getColor(R.color.blue),
@@ -32,7 +32,7 @@ public class IntroActivity extends AppIntro {
         ));
         addSlide(AppIntroFragment.newInstance(
                 "Deskripsi",
-                "Informasi dari berbagai TV Series Popular",
+                "Informasi dari berbagai TV Series terpopular",
                 R.drawable.intro2,
                 Color.WHITE,
                 this.getResources().getColor(R.color.blue),

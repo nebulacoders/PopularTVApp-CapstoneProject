@@ -46,19 +46,19 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_gravity="bottom|left"
-                    android:layout_marginLeft="207dp"
+                    android:layout_marginStart="207dp"
                     android:layout_marginBottom="8dp"
                     android:padding="4dp"
                     android:text="Title"
                     android:textColor="@android:color/white"
-                    android:textSize="25dp"
+                    android:textSize="25sp"
                     android:translationZ="45dp" />
             </RelativeLayout>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="70dp"
                 android:elevation="0dp"
                 android:translationZ="45dp"
@@ -83,7 +83,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="200dp"
+                    android:layout_marginStart="200dp"
                     android:padding="10dp">
 
                     <TextView
@@ -94,6 +94,7 @@
                         android:text="First Air Date"
                         android:drawableStart="@drawable/ic_date"
                         android:drawablePadding="5dp"
+                        android:textSize="15sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -106,6 +107,7 @@
                         android:text="Vote Average"
                         android:drawableStart="@drawable/ic_rate_detail"
                         android:drawablePadding="5dp"
+                        android:textSize="15sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_firstAirDate_detail" />
@@ -118,6 +120,7 @@
                         android:text="Genre"
                         android:drawableStart="@drawable/ic_genre"
                         android:drawablePadding="5dp"
+                        android:textSize="15sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_voteAverage_detail" />
@@ -130,6 +133,7 @@
                         android:text="Popularity"
                         android:drawableStart="@drawable/ic_popularity"
                         android:drawablePadding="5dp"
+                        android:textSize="15sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_genre_detail" />
