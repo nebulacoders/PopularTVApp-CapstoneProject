@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
             if (info.getTypeName().equalsIgnoreCase("WIFI"))
                 if (info.isConnected()) have_WIFI = true;
 
-            if (info.getTypeName().equalsIgnoreCase("MOBILE DATA"))
+            if (info.getTypeName().equalsIgnoreCase("MOBILE"))
                 if (info.isConnected()) have_MobileData = true;
         }
         return have_WIFI || have_MobileData;
