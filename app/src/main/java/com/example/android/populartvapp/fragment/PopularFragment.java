@@ -65,6 +65,7 @@ public class PopularFragment extends Fragment {
         mTVSeriesViewModel = ViewModelProviders.of(this).get(TVSeriesViewModel.class);
 
         if (haveNetwork()) {
+            mTVSeriesViewModel.deleteAll();
             getAndSaveDataAPI();
         } else if (!haveNetwork()) {
             adapterTVSeries = new TVSeriesAdapter(getContext());
@@ -88,7 +89,6 @@ public class PopularFragment extends Fragment {
                     public void onResponse(Call<RootTVSeriesModel> call, Response<RootTVSeriesModel> response) {
                         if (response.isSuccessful()) {
                             listDataTVSeries = response.body().getResults(); // Mengambil data dari JSON lalu ditampung ke model
-                            mTVSeriesViewModel.deleteAll();
 
                             // Menyimpan data ke database || Save data
                             for (int i = 0; i < listDataTVSeries.size(); i++) {
