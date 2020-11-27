@@ -41,7 +41,7 @@ public class TVSeriesAdapter extends RecyclerView.Adapter<TVSeriesAdapter.ViewHo
         this.mContext = context;
     }
 
-    public void setData(ArrayList<ResultsItem> data){
+    public void setData(ArrayList<ResultsItem> data) {
         this.listDataTVSeries = data;
         notifyDataSetChanged();
     }
@@ -57,14 +57,25 @@ public class TVSeriesAdapter extends RecyclerView.Adapter<TVSeriesAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvTitle.setText(listDataTVSeries.get(position).getOriginalName());
-        holder.tvFirstAirDate.setText(listDataTVSeries.get(position).getFirstAirDate().substring(0,4));
+        if (listDataTVSeries.get(position).getFirstAirDate() != null) {
+            if (listDataTVSeries.get(position).getFirstAirDate().length() != 0)
+                holder.tvFirstAirDate.setText(listDataTVSeries.get(position).getFirstAirDate().substring(0, 4));
+        } else
+            holder.tvFirstAirDate.setText(listDataTVSeries.get(position).getFirstAirDate());
         holder.tvVoteAverage.setText(Double.toString(listDataTVSeries.get(position).getVoteAverage()));
-        String url = "https://image.tmdb.org/t/p/w200" + listDataTVSeries.get(position).getPosterPath();
-        Glide.with(mContext)
-                .load(url)
-                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                .error(R.drawable.logonebula)
-                .into(holder.ivPoster);
+
+        if (listDataTVSeries.get(position).getPosterPath() != null) {
+            String url = "https://image.tmdb.org/t/p/w200" + listDataTVSeries.get(position).getPosterPath();
+            Glide.with(mContext)
+                    .load(url)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                    .error(R.drawable.logonebula)
+                    .into(holder.ivPoster);
+        }else{
+            Glide.with(mContext)
+                    .load(R.drawable.no_image_available)
+                    .into(holder.ivPoster);
+        }
     }
 
     @Override

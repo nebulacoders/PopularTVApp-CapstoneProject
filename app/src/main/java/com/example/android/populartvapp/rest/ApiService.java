@@ -9,7 +9,7 @@ import retrofit2.http.Query;
 
 public interface ApiService {
     // tv/popular?api_key=0dde3e9896a8c299d142e214fcb636f8&language=en-US&page=1
-    @GET("popular")
+    @GET("tv/popular")
     Call<RootTVSeriesModel> getPopular(
             @Query("api_key") String apiKey,
             @Query("language") String language,
@@ -17,10 +17,16 @@ public interface ApiService {
     );
 
     // tv/63174?api_key=0dde3e9896a8c299d142e214fcb636f8
-    @GET("{tv_id}")
+    @GET("tv/{tv_id}")
     Call<RootTVSeriesModel> getDetails(
             @Path("tv_id") String tvId,
             @Query("api_key") String apiKey
+    );
+
+    @GET("search/tv")
+    Call<RootTVSeriesModel> searchTV(
+            @Query("api_key") String apiKey,
+            @Query("query") String query
     );
 
 }

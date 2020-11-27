@@ -7,7 +7,7 @@ public class ApiConfig {
 
     public static ApiService getApiService(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.themoviedb.org/3/tv/") // Base URL
+                .baseUrl("https://api.themoviedb.org/3/") // Base URL
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
