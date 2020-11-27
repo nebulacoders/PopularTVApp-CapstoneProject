@@ -23,6 +23,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.android.populartvapp.fragment.PopularFragment;
 import com.example.android.populartvapp.fragment.SecondFragment;
 import com.example.android.populartvapp.adapter.TVSeriesAdapter;
+import com.example.android.populartvapp.fragment.TopRatedFragment;
 import com.example.android.populartvapp.model.ResultsItem;
 import com.example.android.populartvapp.model.RootTVSeriesModel;
 import com.example.android.populartvapp.rest.ApiConfig;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
 
     private PopularFragment popularFragment;
+    private TopRatedFragment topRatedFragment;
     private SecondFragment secondFragment;
 
     @Override
@@ -69,12 +71,14 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
 
         popularFragment = new PopularFragment();
+        topRatedFragment = new TopRatedFragment();
         secondFragment = new SecondFragment();
 
         tabLayout.setupWithViewPager(viewPager);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
         viewPagerAdapter.addFragment(popularFragment, "Popular");
+        viewPagerAdapter.addFragment(topRatedFragment, "Top Rated");
         viewPagerAdapter.addFragment(secondFragment, "Search");
         viewPager.setAdapter(viewPagerAdapter);
 
