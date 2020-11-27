@@ -84,19 +84,28 @@ public class DetailActivity extends AppCompatActivity {
             sbGenre.append(genres.get(genreList.get(i)));
             sbGenre.append(", ");
         }
-        sbGenre.setLength(sbGenre.length() - 2); // Hapus 2 karakter dibelakang string
+        if (sbGenre.length() > 2){
+            sbGenre.setLength(sbGenre.length() - 2); // Hapus 2 karakter dibelakang string
+        }
         tvGenreDetail.setText(sbGenre.toString());
-        String url = "https://image.tmdb.org/t/p/w200" + getIntent().getStringExtra("poster");
-        Glide.with(DetailActivity.this)
-                .load(url)
-                .error(R.drawable.logonebula)
-                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                .into(ivPosterBgDetail);
-        Glide.with(DetailActivity.this)
-                .load(url)
-                .error(R.drawable.logonebula)
-                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                .into(ivPosterDetail);
+
+        if (getIntent().getStringExtra("poster") != null) {
+            String url = "https://image.tmdb.org/t/p/w200" + getIntent().getStringExtra("poster");
+            Glide.with(DetailActivity.this)
+                    .load(url)
+                    .error(R.drawable.logonebula)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                    .into(ivPosterBgDetail);
+            Glide.with(DetailActivity.this)
+                    .load(url)
+                    .error(R.drawable.logonebula)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                    .into(ivPosterDetail);
+        }else{
+            Glide.with(DetailActivity.this).load(R.drawable.logonebula).into(ivPosterBgDetail);
+            Glide.with(DetailActivity.this).load(R.drawable.no_image_available).into(ivPosterDetail);
+        }
+
     }
 
     private void initView() {

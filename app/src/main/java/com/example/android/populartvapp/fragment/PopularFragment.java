@@ -70,7 +70,7 @@ public class PopularFragment extends Fragment {
             adapterTVSeries = new TVSeriesAdapter(getContext());
             rvTVSeries.setAdapter(adapterTVSeries);
             rvTVSeries.setLayoutManager(new GridLayoutManager(getContext(), gridColumnCount));
-            mTVSeriesViewModel.getAllData().observe(this, new Observer<List<ResultsItem>>() {
+            mTVSeriesViewModel.getAllDataPopular().observe(this, new Observer<List<ResultsItem>>() {
                 @Override
                 public void onChanged(@Nullable final List<ResultsItem> data) {
                     // Update the cached copy of the words in the adapter.
@@ -93,7 +93,7 @@ public class PopularFragment extends Fragment {
                             // Menyimpan data ke database || Save data
                             for (int i = 0; i < listDataTVSeries.size(); i++) {
                                 Integer id = listDataTVSeries.get(i).getId();
-                                String name = listDataTVSeries.get(i).getOriginalName();
+                                String name = listDataTVSeries.get(i).getName();
                                 String firstAirDate = listDataTVSeries.get(i).getFirstAirDate();
                                 Double voteAverage = listDataTVSeries.get(i).getVoteAverage();
                                 String poster = listDataTVSeries.get(i).getPosterPath();
@@ -103,13 +103,14 @@ public class PopularFragment extends Fragment {
 
                                 ResultsItem tvSeries = new ResultsItem();
                                 tvSeries.setId(id);
-                                tvSeries.setOriginalName(name);
+                                tvSeries.setName(name);
                                 tvSeries.setFirstAirDate(firstAirDate);
                                 tvSeries.setVoteAverage(voteAverage);
                                 tvSeries.setPosterPath(poster);
                                 tvSeries.setOverview(overview);
                                 tvSeries.setGenreIds(genre);
                                 tvSeries.setPopularity(popularity);
+                                tvSeries.setVariety("popular");
                                 mTVSeriesViewModel.insert(tvSeries);
                             }
 

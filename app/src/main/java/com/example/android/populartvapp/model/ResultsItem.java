@@ -16,6 +16,9 @@ public class ResultsItem{
     @ColumnInfo(name = "rank")
     private Integer rank;
 
+    @ColumnInfo(name = "variety")
+    private String variety;
+
     @SerializedName("first_air_date")
     @ColumnInfo(name = "first_air_date")
     private String firstAirDate;
@@ -45,7 +48,6 @@ public class ResultsItem{
     private String backdropPath;
 
     @SerializedName("original_name")
-    @ColumnInfo(name = "original_name")
     private String originalName;
 
     @SerializedName("popularity")
@@ -57,6 +59,7 @@ public class ResultsItem{
     private Double voteAverage;
 
     @SerializedName("name")
+    @ColumnInfo(name = "name")
     private String name;
 
     @SerializedName("id")
@@ -74,6 +77,10 @@ public class ResultsItem{
     public void setRank(Integer rank) {
         this.rank = rank;
     }
+
+    public String getVariety() { return variety; }
+
+    public void setVariety(String variety) { this.variety = variety; }
 
     public void setFirstAirDate(String firstAirDate){
         this.firstAirDate = firstAirDate;

@@ -14,7 +14,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="TV Series"/>
         <activity
             android:name=".DetailActivity"
             android:label="Detail Activity"

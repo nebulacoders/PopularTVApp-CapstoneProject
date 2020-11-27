@@ -56,7 +56,7 @@ public class TVSeriesAdapter extends RecyclerView.Adapter<TVSeriesAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvTitle.setText(listDataTVSeries.get(position).getOriginalName());
+        holder.tvTitle.setText(listDataTVSeries.get(position).getName());
         if (listDataTVSeries.get(position).getFirstAirDate() != null) {
             if (listDataTVSeries.get(position).getFirstAirDate().length() != 0)
                 holder.tvFirstAirDate.setText(listDataTVSeries.get(position).getFirstAirDate().substring(0, 4));
@@ -105,7 +105,7 @@ public class TVSeriesAdapter extends RecyclerView.Adapter<TVSeriesAdapter.ViewHo
         public void onClick(View view) {
             ResultsItem currentTVSeries = listDataTVSeries.get(getAdapterPosition());
             Intent detailIntent = new Intent(mContext, DetailActivity.class);
-            detailIntent.putExtra("title", currentTVSeries.getOriginalName());
+            detailIntent.putExtra("title", currentTVSeries.getName());
             detailIntent.putExtra("first_air_date", currentTVSeries.getFirstAirDate());
             detailIntent.putExtra("vote_average", Double.toString(currentTVSeries.getVoteAverage()));
             detailIntent.putExtra("poster", currentTVSeries.getPosterPath());

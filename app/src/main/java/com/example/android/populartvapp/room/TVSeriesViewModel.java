@@ -13,15 +13,20 @@ import java.util.List;
 
 public class TVSeriesViewModel extends AndroidViewModel {
     private TVSeriesRepository mRepository;
-    private LiveData<List<ResultsItem>> mResultItems;
+    private LiveData<List<ResultsItem>> mResultsItemsPopular;
+    private LiveData<List<ResultsItem>> mResultsItemsTopRated;
 
     public TVSeriesViewModel(Application application) {
         super(application);
         mRepository = new TVSeriesRepository(application);
-        mResultItems = mRepository.getAllData();
+        mResultsItemsPopular = mRepository.getAllDataPopular();
+        mResultsItemsTopRated = mRepository.getAllDataTopRated();
     }
 
-    public LiveData<List<ResultsItem>> getAllData() { return mResultItems; }
+    public LiveData<List<ResultsItem>> getAllDataPopular() {
+        return mResultsItemsPopular;
+    }
+    public LiveData<List<ResultsItem>> getAllDataTopRated() {return mResultsItemsTopRated;}
 
     public void insert(ResultsItem resultsItem) { mRepository.insert(resultsItem); }
 

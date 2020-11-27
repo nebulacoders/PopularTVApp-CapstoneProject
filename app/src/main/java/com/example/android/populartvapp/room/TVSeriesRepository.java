@@ -11,17 +11,20 @@ import java.util.List;
 
 public class TVSeriesRepository {
     private TVSeriesDao mTVSeriesDao;
-    private LiveData<List<ResultsItem>> mResultsItems;
+    private LiveData<List<ResultsItem>> mResultsItemsPopular;
+    private LiveData<List<ResultsItem>> mResultsItemsTopRated;
 
     TVSeriesRepository(Application application){
         TVSeriesRoomDatabase db = TVSeriesRoomDatabase.getDatabase(application);
         mTVSeriesDao = db.tvSeriesDao();
-        mResultsItems = mTVSeriesDao.getAllData();
+        mResultsItemsPopular = mTVSeriesDao.getAllDataPopular();
+        mResultsItemsTopRated = mTVSeriesDao.getAllDataTopRated();
     }
 
-    LiveData<List<ResultsItem>> getAllData() {
-        return mResultsItems;
+    LiveData<List<ResultsItem>> getAllDataPopular() {
+        return mResultsItemsPopular;
     }
+    LiveData<List<ResultsItem>> getAllDataTopRated() {return mResultsItemsTopRated;}
 
     public void insert (ResultsItem data) {
         new insertAsyncTask(mTVSeriesDao).execute(data);
