@@ -29,4 +29,11 @@ public interface ApiService {
             @Query("query") String query
     );
 
+    @GET("tv/top_rated")
+    Call<RootTVSeriesModel> getTopRated(
+            @Query("api_key") String apiKey,
+            @Query("language") String language,
+            @Query("page") String page
+    );
+
 }
