@@ -68,7 +68,7 @@ public class TVSeriesAdapter extends RecyclerView.Adapter<TVSeriesAdapter.ViewHo
             String url = "https://image.tmdb.org/t/p/w200" + listDataTVSeries.get(position).getPosterPath();
             Glide.with(mContext)
                     .load(url)
-                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .error(R.drawable.logonebula)
                     .into(holder.ivPoster);
         }else{

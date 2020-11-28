@@ -94,12 +94,10 @@ public class DetailActivity extends AppCompatActivity {
             Glide.with(DetailActivity.this)
                     .load(url)
                     .error(R.drawable.logonebula)
-                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                     .into(ivPosterBgDetail);
             Glide.with(DetailActivity.this)
                     .load(url)
                     .error(R.drawable.logonebula)
-                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                     .into(ivPosterDetail);
         }else{
             Glide.with(DetailActivity.this).load(R.drawable.logonebula).into(ivPosterBgDetail);
