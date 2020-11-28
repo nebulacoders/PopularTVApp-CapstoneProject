@@ -81,7 +81,6 @@ public class SecondFragment extends Fragment {
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                listDataTVSeries.clear();
                 searchTVSeries(v);
             }
         });
@@ -105,8 +104,8 @@ public class SecondFragment extends Fragment {
             networkInfo = connMgr.getActiveNetworkInfo();
         }
 
-        if (networkInfo != null && networkInfo.isConnected()
-                && queryString.length() != 0) {
+        if (networkInfo != null && networkInfo.isConnected() && queryString.length() != 0) {
+            listDataTVSeries.clear();
             mLogText.setText("");
             ApiService apiService = ApiConfig.getApiService();
             apiService.searchTV("0dde3e9896a8c299d142e214fcb636f8", queryString)

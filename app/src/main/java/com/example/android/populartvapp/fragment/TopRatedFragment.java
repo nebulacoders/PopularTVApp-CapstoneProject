@@ -64,15 +64,16 @@ public class TopRatedFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rvTVSeries = view.findViewById(R.id.recyclerViewTopRated);
-        listDataTVSeries = new ArrayList<>();
+
         mTVSeriesViewModel = ViewModelProviders.of(this).get(TVSeriesViewModel.class);
+        listDataTVSeries = new ArrayList<>();
+        adapterTVSeries = new TVSeriesAdapter(getContext());
+        rvTVSeries.setAdapter(adapterTVSeries);
+        rvTVSeries.setLayoutManager(new GridLayoutManager(getContext(), gridColumnCount));
 
         if (haveNetwork()) {
             getAndSaveDataAPI();
         } else if (!haveNetwork()) {
-            adapterTVSeries = new TVSeriesAdapter(getContext());
-            rvTVSeries.setAdapter(adapterTVSeries);
-            rvTVSeries.setLayoutManager(new GridLayoutManager(getContext(), gridColumnCount));
             mTVSeriesViewModel.getAllDataTopRated().observe(this, new Observer<List<ResultsItem>>() {
                 @Override
                 public void onChanged(@Nullable final List<ResultsItem> data) {
@@ -116,10 +117,8 @@ public class TopRatedFragment extends Fragment {
                                 mTVSeriesViewModel.insert(tvSeries);
                             }
 
-                            adapterTVSeries = new TVSeriesAdapter(getContext(), listDataTVSeries); // Membuat adapter dan supply data yang akan ditampilkan
+                            adapterTVSeries.setData(listDataTVSeries);
                             adapterTVSeries.notifyDataSetChanged(); // Memberitahu adapter apabila ada data baru
-                            rvTVSeries.setAdapter(adapterTVSeries); // Connect adapter dengan RV
-                            rvTVSeries.setLayoutManager(new GridLayoutManager(getContext(), gridColumnCount)); // Menentukan RV default layout
                         }
                     }
 

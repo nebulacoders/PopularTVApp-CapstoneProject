@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     private TopRatedFragment topRatedFragment;
     private SecondFragment secondFragment;
 
+    private TVSeriesViewModel mTVSeriesViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
         secondFragment = new SecondFragment();
 
         tabLayout.setupWithViewPager(viewPager);
+
+        mTVSeriesViewModel = ViewModelProviders.of(this).get(TVSeriesViewModel.class);
+        if (haveNetwork()) {
+            mTVSeriesViewModel.deleteAll();
+        }
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
         viewPagerAdapter.addFragment(popularFragment, "Popular");
@@ -134,6 +143,21 @@ public class MainActivity extends AppCompatActivity {
                 // Do nothing
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private boolean haveNetwork() {
+        boolean have_WIFI = false;
+        boolean have_MobileData = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo[] networkInfos = connectivityManager.getAllNetworkInfo();
+        for (NetworkInfo info : networkInfos) {
+            if (info.getTypeName().equalsIgnoreCase("WIFI"))
+                if (info.isConnected()) have_WIFI = true;
+
+            if (info.getTypeName().equalsIgnoreCase("MOBILE"))
+                if (info.isConnected()) have_MobileData = true;
+        }
+        return have_WIFI || have_MobileData;
     }
 
 }
