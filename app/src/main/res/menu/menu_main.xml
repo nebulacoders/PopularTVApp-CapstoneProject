@@ -11,4 +11,11 @@
         app:showAsAction="never"
         />
 
+    <item
+        android:id="@+id/action_alarm"
+        android:orderInCategory="100"
+        android:title="Alarm Toggle"
+        app:showAsAction="never"
+        />
+
 </menu>
