@@ -45,20 +45,38 @@ public class TVSeriesRepository {
         }
     }
 
-    public void deleteAll()  {
-        new deleteAllWordsAsyncTask(mTVSeriesDao).execute();
+    public void deleteAllPopular()  {
+        new deleteAllPopularAsyncTask(mTVSeriesDao).execute();
     }
 
-    private static class deleteAllWordsAsyncTask extends AsyncTask<Void, Void, Void> {
+    private static class deleteAllPopularAsyncTask extends AsyncTask<Void, Void, Void> {
         private TVSeriesDao mAsyncTaskDao;
 
-        deleteAllWordsAsyncTask(TVSeriesDao dao) {
+        deleteAllPopularAsyncTask(TVSeriesDao dao) {
             mAsyncTaskDao = dao;
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
-            mAsyncTaskDao.deleteAll();
+            mAsyncTaskDao.deleteAllPopular();
+            return null;
+        }
+    }
+
+    public void deleteAllTopRated()  {
+        new deleteAllTopRatedAsyncTask(mTVSeriesDao).execute();
+    }
+
+    private static class deleteAllTopRatedAsyncTask extends AsyncTask<Void, Void, Void> {
+        private TVSeriesDao mAsyncTaskDao;
+
+        deleteAllTopRatedAsyncTask(TVSeriesDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            mAsyncTaskDao.deleteAllTopRated();
             return null;
         }
     }

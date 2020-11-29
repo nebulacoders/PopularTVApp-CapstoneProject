@@ -103,10 +103,10 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.setupWithViewPager(viewPager);
 
-        mTVSeriesViewModel = ViewModelProviders.of(this).get(TVSeriesViewModel.class);
-        if (haveNetwork()) {
-            mTVSeriesViewModel.deleteAll();
-        }
+//        mTVSeriesViewModel = ViewModelProviders.of(this).get(TVSeriesViewModel.class);
+//        if (haveNetwork()) {
+//            mTVSeriesViewModel.deleteAll();
+//        }
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
         viewPagerAdapter.addFragment(popularFragment, "Popular");

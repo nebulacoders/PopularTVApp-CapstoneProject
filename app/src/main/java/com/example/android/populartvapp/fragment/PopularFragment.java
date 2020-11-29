@@ -47,7 +47,6 @@ public class PopularFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -69,6 +68,7 @@ public class PopularFragment extends Fragment {
         rvTVSeries.setLayoutManager(new GridLayoutManager(getContext(), gridColumnCount));
 
         if (haveNetwork()) {
+            mTVSeriesViewModel.deleteAllPopular();
             getAndSaveDataAPI();
         } else if (!haveNetwork()) {
             mTVSeriesViewModel.getAllDataPopular().observe(this, new Observer<List<ResultsItem>>() {

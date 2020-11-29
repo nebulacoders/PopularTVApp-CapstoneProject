@@ -30,5 +30,6 @@ public class TVSeriesViewModel extends AndroidViewModel {
 
     public void insert(ResultsItem resultsItem) { mRepository.insert(resultsItem); }
 
-    public void deleteAll() {mRepository.deleteAll();}
+    public void deleteAllPopular() {mRepository.deleteAllPopular();}
+    public void deleteAllTopRated() {mRepository.deleteAllTopRated();}
 }

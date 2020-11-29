@@ -25,7 +25,13 @@ public interface TVSeriesDao {
     @Query("SELECT * from api_table WHERE variety = 'top_rated' ORDER BY rank ASC")
     LiveData<List<ResultsItem>> getAllDataTopRated();
 
-    @Query("DELETE FROM api_table")
-    void deleteAll();
+//    @Query("DELETE FROM api_table")
+//    void deleteAll();
+
+    @Query("DELETE FROM api_table WHERE variety = 'popular'")
+    void deleteAllPopular();
+
+    @Query("DELETE FROM api_table WHERE variety = 'top_rated'")
+    void deleteAllTopRated();
 
 }

@@ -44,8 +44,6 @@ public class TopRatedFragment extends Fragment {
         // Required empty public constructor
     }
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +70,7 @@ public class TopRatedFragment extends Fragment {
         rvTVSeries.setLayoutManager(new GridLayoutManager(getContext(), gridColumnCount));
 
         if (haveNetwork()) {
+            mTVSeriesViewModel.deleteAllTopRated();
             getAndSaveDataAPI();
         } else if (!haveNetwork()) {
             mTVSeriesViewModel.getAllDataTopRated().observe(this, new Observer<List<ResultsItem>>() {
